@@ -1,8 +1,9 @@
 const http = require("http");
 const contents = require("./loadContent");
 const server = http.createServer((req, res) => {
-  if (req.url == "/") {
-    res.end(contents.index);
+  if (req.url == "/index") {
+    res.write(contents.index);
+    res.end();
   } else if (req.url == "/about") {
     res.write(contents.about);
     res.end();
